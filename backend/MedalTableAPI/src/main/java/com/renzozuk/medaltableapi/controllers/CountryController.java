@@ -84,12 +84,12 @@ public class CountryController {
     @DeleteMapping("/{id}/delete")
     public ResponseEntity<CountryDTO> deleteCountry(@PathVariable String id) {
         countryService.deleteCountry(id);
-        return new ResponseEntity<>(HttpStatus.OK);
+        return ResponseEntity.noContent().build();
     }
 
     @DeleteMapping("/name/{name}/delete")
     public ResponseEntity<CountryDTO> deleteCountryByName(@PathVariable String name) {
         countryService.deleteCountryByName(name);
-        return new ResponseEntity<>(HttpStatus.OK);
+        return ResponseEntity.noContent().build();
     }
 }

@@ -1,4 +1,4 @@
-package com.renzozuk.medaltableapi.services.exception;
+package com.renzozuk.medaltableapi.exceptions;
 
 import java.io.Serial;
 
@@ -11,6 +11,6 @@ public class ResourceNotFoundException extends RuntimeException {
     }
 
     public ResourceNotFoundException(Class<?> clazz) {
-        this(clazz.getSimpleName());
+        this(clazz.getSimpleName().toLowerCase());
     }
 }
