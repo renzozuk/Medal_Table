@@ -1,0 +1,12 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/medal_table
+    username: postgres
+    password: 1234567
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: validate
+
+hibernate:
+  physical_naming_strategy: com.baeldung.hibernate.namingstrategy.CustomPhysicalNamingStrategy
