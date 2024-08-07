@@ -8,8 +8,6 @@ import jakarta.persistence.Table;
 
 import java.util.Objects;
 
-import static java.lang.Integer.parseInt;
-
 @Entity(name = "country")
 @Table(name = "country")
 public class Country {

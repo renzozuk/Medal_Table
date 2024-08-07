@@ -1,0 +1,40 @@
+.outer-div {
+    padding: 15px 0;
+}
+
+.inner-div, .div-content {
+    display: flex;
+    flex-direction: row;
+}
+
+.div-content {
+    width: 50%;
+}
+
+.div-content-start {
+    justify-content: flex-start;
+}
+
+.div-content-end {
+    justify-content: flex-end;
+}
+
+img {
+    width: 100px;
+    height: 60px;
+    border: none;
+}
+
+p {
+    margin: auto 20px;
+    font-size: 150%;
+}
+
+.number {
+    width: 40px;
+    text-align: center;
+}
+
+#name {
+    width: 400px;
+}

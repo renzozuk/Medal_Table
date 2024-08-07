@@ -5,17 +5,11 @@ import com.renzozuk.medaltableapi.services.CountryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@CrossOrigin(origins = "http://localhost:5173")
 @RestController
 @RequestMapping("/country")
 public class CountryController {
@@ -79,6 +73,66 @@ public class CountryController {
     @PutMapping("/name/{name}/update")
     public ResponseEntity<CountryDTO> updateCountryByName(@RequestBody CountryDTO countryDTO, @PathVariable String name) {
         return new ResponseEntity<>(countryService.updateCountryByName(countryDTO, name), HttpStatus.OK);
+    }
+
+    @PutMapping("/{id}/gold/increase")
+    public ResponseEntity<CountryDTO> increaseCountryGold(@PathVariable String id) {
+        return new ResponseEntity<>(countryService.increaseCountryGold(id), HttpStatus.OK);
+    }
+
+    @PutMapping("/name/{name}/gold/increase")
+    public ResponseEntity<CountryDTO> increaseCountryGoldByName(@PathVariable String name) {
+        return new ResponseEntity<>(countryService.increaseCountryGoldByName(name), HttpStatus.OK);
+    }
+
+    @PutMapping("/{id}/gold/decrease")
+    public ResponseEntity<CountryDTO> decreaseCountryGold(@PathVariable String id) {
+        return new ResponseEntity<>(countryService.decreaseCountryGold(id), HttpStatus.OK);
+    }
+
+    @PutMapping("/name/{name}/gold/decrease")
+    public ResponseEntity<CountryDTO> decreaseCountryGoldByName(@PathVariable String name) {
+        return new ResponseEntity<>(countryService.decreaseCountryGoldByName(name), HttpStatus.OK);
+    }
+
+    @PutMapping("/{id}/silver/increase")
+    public ResponseEntity<CountryDTO> increaseCountrySilver(@PathVariable String id) {
+        return new ResponseEntity<>(countryService.increaseCountrySilver(id), HttpStatus.OK);
+    }
+
+    @PutMapping("/name/{name}/silver/increase")
+    public ResponseEntity<CountryDTO> increaseCountrySilverByName(@PathVariable String name) {
+        return new ResponseEntity<>(countryService.increaseCountrySilverByName(name), HttpStatus.OK);
+    }
+
+    @PutMapping("/{id}/silver/decrease")
+    public ResponseEntity<CountryDTO> decreaseCountrySilver(@PathVariable String id) {
+        return new ResponseEntity<>(countryService.decreaseCountrySilver(id), HttpStatus.OK);
+    }
+
+    @PutMapping("/name/{name}/silver/decrease")
+    public ResponseEntity<CountryDTO> decreaseCountrySilverByName(@PathVariable String name) {
+        return new ResponseEntity<>(countryService.decreaseCountrySilverByName(name), HttpStatus.OK);
+    }
+
+    @PutMapping("/{id}/bronze/increase")
+    public ResponseEntity<CountryDTO> increaseCountryBronze(@PathVariable String id) {
+        return new ResponseEntity<>(countryService.increaseCountryBronze(id), HttpStatus.OK);
+    }
+
+    @PutMapping("/name/{name}/bronze/increase")
+    public ResponseEntity<CountryDTO> increaseCountryBronzeByName(@PathVariable String name) {
+        return new ResponseEntity<>(countryService.increaseCountryBronzeByName(name), HttpStatus.OK);
+    }
+
+    @PutMapping("/{id}/bronze/decrease")
+    public ResponseEntity<CountryDTO> decreaseCountryBronze(@PathVariable String id) {
+        return new ResponseEntity<>(countryService.decreaseCountryBronze(id), HttpStatus.OK);
+    }
+
+    @PutMapping("/name/{name}/bronze/decrease")
+    public ResponseEntity<CountryDTO> decreaseCountryBronzeByName(@PathVariable String name) {
+        return new ResponseEntity<>(countryService.decreaseCountryBronzeByName(name), HttpStatus.OK);
     }
 
     @DeleteMapping("/{id}/delete")

@@ -1,0 +1,37 @@
+#page {
+    display: flex;
+    flex-direction: row;
+}
+
+@media (orientation: landscape) {
+    .side-bar {
+        width: 15vw;
+        min-height: 100vh;
+        background-color: whitesmoke;
+    }
+    
+    .content {
+        width: 70vw;
+    }
+}
+
+@media (orientation: portrait) {
+    .side-bar {
+        width: 0vw;
+    }
+
+    .content {
+        width: 100vw;
+    }
+}
+
+#header {
+    padding: 15px 0;
+    background-color: aqua;
+}
+
+h1 {
+    margin: 0 auto;
+    color: #ffffff;
+    text-align: center;
+}

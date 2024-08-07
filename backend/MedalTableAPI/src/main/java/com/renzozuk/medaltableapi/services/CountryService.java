@@ -16,6 +16,18 @@ public interface CountryService {
     CountryDTO getCountryByName(String name);
     CountryDTO updateCountry(CountryDTO countryDTO, String id);
     CountryDTO updateCountryByName(CountryDTO countryDTO, String name);
+    CountryDTO increaseCountryGold(String id);
+    CountryDTO increaseCountryGoldByName(String name);
+    CountryDTO decreaseCountryGold(String id);
+    CountryDTO decreaseCountryGoldByName(String name);
+    CountryDTO increaseCountrySilver(String id);
+    CountryDTO increaseCountrySilverByName(String name);
+    CountryDTO decreaseCountrySilver(String id);
+    CountryDTO decreaseCountrySilverByName(String name);
+    CountryDTO increaseCountryBronze(String id);
+    CountryDTO increaseCountryBronzeByName(String name);
+    CountryDTO decreaseCountryBronze(String id);
+    CountryDTO decreaseCountryBronzeByName(String name);
     void deleteCountry(String id);
     void deleteCountryByName(String name);
 }

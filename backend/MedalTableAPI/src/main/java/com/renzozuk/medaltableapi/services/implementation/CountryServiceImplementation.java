@@ -127,6 +127,150 @@ public class CountryServiceImplementation implements CountryService {
     }
 
     @Override
+    public CountryDTO increaseCountryGold(String id) {
+        Country country = countryRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException(Country.class));
+
+        country.setGoldMedals(country.getGoldMedals() + 1);
+
+        return mapToDTO(countryRepository.save(country));
+    }
+
+    @Override
+    public CountryDTO increaseCountryGoldByName(String name) {
+        try{
+            Country country = countryRepository.findByName(name);
+
+            country.setGoldMedals(country.getGoldMedals() + 1);
+
+            return mapToDTO(countryRepository.save(country));
+        }catch(NullPointerException e){
+            throw new ResourceNotFoundException(Country.class);
+        }
+    }
+
+    @Override
+    public CountryDTO decreaseCountryGold(String id) {
+        Country country = countryRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException(Country.class));
+
+        if(country.getGoldMedals() > 0){
+            country.setGoldMedals(country.getGoldMedals() - 1);
+        }
+
+        return mapToDTO(countryRepository.save(country));
+    }
+
+    @Override
+    public CountryDTO decreaseCountryGoldByName(String name) {
+        try{
+            Country country = countryRepository.findByName(name);
+
+            if(country.getGoldMedals() > 0){
+                country.setGoldMedals(country.getGoldMedals() - 1);
+            }
+
+            return mapToDTO(countryRepository.save(country));
+        }catch(NullPointerException e){
+            throw new ResourceNotFoundException(Country.class);
+        }
+    }
+
+    @Override
+    public CountryDTO increaseCountrySilver(String id) {
+        Country country = countryRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException(Country.class));
+
+        country.setSilverMedals(country.getSilverMedals() + 1);
+
+        return mapToDTO(countryRepository.save(country));
+    }
+
+    @Override
+    public CountryDTO increaseCountrySilverByName(String name) {
+        try{
+            Country country = countryRepository.findByName(name);
+
+            country.setSilverMedals(country.getSilverMedals() + 1);
+
+            return mapToDTO(countryRepository.save(country));
+        }catch(NullPointerException e){
+            throw new ResourceNotFoundException(Country.class);
+        }
+    }
+
+    @Override
+    public CountryDTO decreaseCountrySilver(String id) {
+        Country country = countryRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException(Country.class));
+
+        if(country.getSilverMedals() > 0){
+            country.setSilverMedals(country.getSilverMedals() - 1);
+        }
+
+        return mapToDTO(countryRepository.save(country));
+    }
+
+    @Override
+    public CountryDTO decreaseCountrySilverByName(String name) {
+        try{
+            Country country = countryRepository.findByName(name);
+
+            if(country.getSilverMedals() > 0){
+                country.setSilverMedals(country.getSilverMedals() - 1);
+            }
+
+            return mapToDTO(countryRepository.save(country));
+        }catch(NullPointerException e){
+            throw new ResourceNotFoundException(Country.class);
+        }
+    }
+
+    @Override
+    public CountryDTO increaseCountryBronze(String id) {
+        Country country = countryRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException(Country.class));
+
+        country.setBronzeMedals(country.getBronzeMedals() + 1);
+
+        return mapToDTO(countryRepository.save(country));
+    }
+
+    @Override
+    public CountryDTO increaseCountryBronzeByName(String name) {
+        try{
+            Country country = countryRepository.findByName(name);
+
+            country.setBronzeMedals(country.getBronzeMedals() + 1);
+
+            return mapToDTO(countryRepository.save(country));
+        }catch(NullPointerException e){
+            throw new ResourceNotFoundException(Country.class);
+        }
+    }
+
+    @Override
+    public CountryDTO decreaseCountryBronze(String id) {
+        Country country = countryRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException(Country.class));
+
+        if(country.getBronzeMedals() > 0){
+            country.setBronzeMedals(country.getBronzeMedals() - 1);
+        }
+
+        return mapToDTO(countryRepository.save(country));
+    }
+
+    @Override
+    public CountryDTO decreaseCountryBronzeByName(String name) {
+        try{
+            Country country = countryRepository.findByName(name);
+
+            if(country.getBronzeMedals() > 0){
+                country.setBronzeMedals(country.getBronzeMedals() - 1);
+            }
+
+            return mapToDTO(countryRepository.save(country));
+        }catch(NullPointerException e){
+            throw new ResourceNotFoundException(Country.class);
+        }
+    }
+
+    @Override
     public void deleteCountry(String id) {
         countryRepository.delete(countryRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException(Country.class)));
     }
