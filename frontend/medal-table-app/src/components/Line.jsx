@@ -13,7 +13,7 @@ function Line(props) {
     }
 
     return (
-        <div className="outer-div" style={{ backgroundColor: background, color: textColor }}>
+        <div className="outer-div" id={props.id} style={{ backgroundColor: background, color: textColor }}>
             <div className="inner-div">
                 <div className="div-content div-content-start">
                     <p className="number">{props.number}.</p>
