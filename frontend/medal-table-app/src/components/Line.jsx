@@ -1,19 +1,11 @@
 import "./Line.css";
 
-function Line(props) {
-    let background;
-    let textColor;
-
-    if (props.number % 2 == 0) {
-        background = "white";
-        textColor = "aqua";
-    } else {
-        background = "aqua";
-        textColor = "white";
-    }
+export default function Line(props) {
+    let background = props.number % 2 == 0 ? "white" : "aqua";
+    let textColor = props.number % 2 == 0 ? "aqua" : "white";
 
     return (
-        <div className="outer-div" id={props.id} style={{ backgroundColor: background, color: textColor }}>
+        <div className="outer-div" style={{ backgroundColor: background, color: textColor }}>
             <div className="inner-div">
                 <div className="div-content div-content-start">
                     <p className="number">{props.number}.</p>
@@ -30,5 +22,3 @@ function Line(props) {
         </div>
     );
 }
-
-export default Line;

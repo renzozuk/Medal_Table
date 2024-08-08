@@ -1,0 +1,46 @@
+.button {
+    margin: 10px auto;
+    display: flex;
+    flex-direction: row;
+    background-color: #ffffff;
+    cursor: pointer;
+}
+
+.left-side, .right-side {
+    height: 30px;
+}
+
+.left-side {
+    width: 60px;
+    
+}
+
+.medal-button-image {
+    width: 22px;
+    height: 22px;
+    margin: 4px calc((100% - 22px) / 2);
+}
+
+.button-text {
+    margin: auto 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: aqua;
+}
+
+.right-side {
+    width: 30px;
+    border-width: 1px;
+    border-radius: 0 1px 1px 0;
+    border-left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.arrow-image {
+    width: 22px;
+    height: 22px;
+}

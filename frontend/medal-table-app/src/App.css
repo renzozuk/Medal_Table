@@ -9,7 +9,7 @@
         min-height: 100vh;
         background-color: rgb(0, 0, 25);
     }
-    
+
     .content {
         width: 70vw;
     }
@@ -25,21 +25,35 @@
     }
 }
 
-#header {
-    padding: 15px 0;
+.header {
+    padding: 25px 0;
     background-color: aqua;
 }
 
-h1 {
+.header-title {
     margin: 0 auto;
-    color: #ffffff;
     text-align: center;
+    font-size: 200%;
+    font-weight: 600;
+    color: #ffffff;
 }
 
 .sub-header {
     display: flex;
-    flex-direction: row;
     background-color: #ffffff;
+}
+
+.sequence-buttons {
+    gap: 15px;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.sub-header-labels {
+    flex-direction: row;
+    border-top-width: 5px;
+    border-top-style: solid;
+    border-top-color: aqua;
 }
 
 .sub-header-start {
@@ -51,7 +65,8 @@ h1 {
     color: aqua;
 }
 
-#hashtag-label, #name-label {
+#hashtag-label,
+#name-label {
     margin: auto 20px;
 }
 
