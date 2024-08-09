@@ -1,9 +1,17 @@
-.button {
-    margin: 10px auto;
+button {
+    margin: 15px;
     display: flex;
     flex-direction: row;
     background-color: #ffffff;
+    color: aqua;
+    border: 2px solid aqua;
+    border-radius: 10px;
     cursor: pointer;
+}
+
+button:hover {
+    background-color: aqua;
+    color: #ffffff
 }
 
 .left-side, .right-side {
@@ -12,29 +20,26 @@
 
 .left-side {
     width: 60px;
-    
 }
 
 .medal-button-image {
-    width: 22px;
-    height: 22px;
-    margin: 4px calc((100% - 22px) / 2);
+    object-fit: contain;
+    max-width: 24px;
+    max-height: 24px;
+    margin: 3px calc((100% - 24px) / 2);
 }
 
 .button-text {
-    margin: auto 0;
+    margin: 3px 0;
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
-    color: aqua;
+    /* color: aqua; */
 }
 
 .right-side {
     width: 30px;
-    border-width: 1px;
-    border-radius: 0 1px 1px 0;
-    border-left: 0;
     display: flex;
     justify-content: center;
     align-items: center;
