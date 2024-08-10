@@ -19,6 +19,12 @@
     justify-content: flex-end;
 }
 
+.outer-flag {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
 img {
     width: 100px;
     height: 60px;
@@ -28,6 +34,25 @@ img {
 p {
     margin: auto 20px;
     font-size: 150%;
+}
+
+.outer-number {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* .change-button {
+    display: none;
+} */
+
+.increase-button {
+    border-radius: 1% 1% 0 0;
+}
+
+.decrease-button {
+    border-radius: 0 0 1% 1%;
 }
 
 .number {

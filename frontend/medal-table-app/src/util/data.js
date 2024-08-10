@@ -4,7 +4,7 @@ function processData(parameter) {
     return fetch(`${path}${parameter}`)
     .then((response) => {
         if (!response.ok) {
-            throw new Error("Resposta de rede não foi ok");
+            throw new Error("Network answer wasn't ok");
         }
         return response.json();
     });

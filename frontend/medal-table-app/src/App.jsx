@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 import Line from "./components/Line.jsx";
 import SequenceButton from "./components/SequenceButton.jsx";
 import processData from "./util/data.js";
@@ -19,7 +19,7 @@ export default function App() {
 
     return (
         <div id="page">
-            <div className="side-bar"></div>
+            <div className="side-bar side-bar-left"></div>
             <div className="content">
                 <div className="header">
                     <p className="header-title">Olympic Medal Table</p>
@@ -52,10 +52,10 @@ export default function App() {
                     </div>
                 </div>
                 {countries.map((countryData, index) => (
-                    <Line key={countryData.id} number={index + 1} name={countryData.name} flagLink={countryData.photoPath} gold={countryData.goldMedals} silver={countryData.silverMedals} bronze={countryData.bronzeMedals} all={countryData.allMedals} />
+                    <Line key={countryData.id} number={index + 1} name={countryData.name} flagLink={countryData.photoPath} gold={countryData.goldMedals} silver={countryData.silverMedals} bronze={countryData.bronzeMedals} all={countryData.allMedals} id={countryData.id} />
                 ))}
             </div>
-            <div className="side-bar"></div>
+            <div className="side-bar side-bar-right"></div>
         </div>
     );
 }

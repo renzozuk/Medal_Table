@@ -1,17 +1,17 @@
-button {
+.button {
     margin: 15px;
     display: flex;
     flex-direction: row;
-    background-color: #ffffff;
-    color: aqua;
-    border: 2px solid aqua;
+    background-color: #eaeaea;
+    color: #444444;
+    border: 2px solid #444444;
     border-radius: 10px;
     cursor: pointer;
 }
 
-button:hover {
-    background-color: aqua;
-    color: #ffffff
+.button:hover {
+    background-color: #444444;
+    color: #eaeaea
 }
 
 .left-side, .right-side {
@@ -35,7 +35,7 @@ button:hover {
     justify-content: center;
     align-items: center;
     text-align: center;
-    /* color: aqua; */
+    /* color: #444444; */
 }
 
 .right-side {

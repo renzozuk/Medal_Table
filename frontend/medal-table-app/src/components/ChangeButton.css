@@ -1,0 +1,8 @@
+.change-button {
+    width: 50%;
+    margin: 5px auto;
+    font-size: 110%;
+    justify-content: center;
+    border: none;
+    cursor: pointer;
+}
