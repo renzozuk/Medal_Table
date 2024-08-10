@@ -60,89 +60,99 @@ public class CountryController {
         return new ResponseEntity<>(countryService.getCountryByName(name), HttpStatus.OK);
     }
 
-    @PostMapping("/create")
+    @PostMapping
     public ResponseEntity<CountryDTO> createCountry(@RequestBody CountryDTO countryDTO) {
         return new ResponseEntity<>(countryService.createCountry(countryDTO), HttpStatus.CREATED);
     }
 
-    @PutMapping("/{id}/update")
+    @PutMapping("/{id}")
     public ResponseEntity<CountryDTO> updateCountry(@RequestBody CountryDTO countryDTO, @PathVariable String id) {
         return new ResponseEntity<>(countryService.updateCountry(countryDTO, id), HttpStatus.OK);
     }
 
-    @PutMapping("/name/{name}/update")
+    @PutMapping("/name/{name}")
     public ResponseEntity<CountryDTO> updateCountryByName(@RequestBody CountryDTO countryDTO, @PathVariable String name) {
         return new ResponseEntity<>(countryService.updateCountryByName(countryDTO, name), HttpStatus.OK);
     }
 
-    @PutMapping("/{id}/gold/increase")
+    @PatchMapping("/{id}")
+    public ResponseEntity<CountryDTO> patchCountry(@RequestBody CountryDTO countryDTO, @PathVariable String id) {
+        return new ResponseEntity<>(countryService.patchCountry(countryDTO, id), HttpStatus.OK);
+    }
+
+    @PatchMapping("/name/{name}")
+    public ResponseEntity<CountryDTO> patchCountryByName(@RequestBody CountryDTO countryDTO, @PathVariable String name) {
+        return new ResponseEntity<>(countryService.patchCountryByName(countryDTO, name), HttpStatus.OK);
+    }
+
+    @PatchMapping("/{id}/gold/increase")
     public ResponseEntity<CountryDTO> increaseCountryGold(@PathVariable String id) {
         return new ResponseEntity<>(countryService.increaseCountryGold(id), HttpStatus.OK);
     }
 
-    @PutMapping("/name/{name}/gold/increase")
+    @PatchMapping("/name/{name}/gold/increase")
     public ResponseEntity<CountryDTO> increaseCountryGoldByName(@PathVariable String name) {
         return new ResponseEntity<>(countryService.increaseCountryGoldByName(name), HttpStatus.OK);
     }
 
-    @PutMapping("/{id}/gold/decrease")
+    @PatchMapping("/{id}/gold/decrease")
     public ResponseEntity<CountryDTO> decreaseCountryGold(@PathVariable String id) {
         return new ResponseEntity<>(countryService.decreaseCountryGold(id), HttpStatus.OK);
     }
 
-    @PutMapping("/name/{name}/gold/decrease")
+    @PatchMapping("/name/{name}/gold/decrease")
     public ResponseEntity<CountryDTO> decreaseCountryGoldByName(@PathVariable String name) {
         return new ResponseEntity<>(countryService.decreaseCountryGoldByName(name), HttpStatus.OK);
     }
 
-    @PutMapping("/{id}/silver/increase")
+    @PatchMapping("/{id}/silver/increase")
     public ResponseEntity<CountryDTO> increaseCountrySilver(@PathVariable String id) {
         return new ResponseEntity<>(countryService.increaseCountrySilver(id), HttpStatus.OK);
     }
 
-    @PutMapping("/name/{name}/silver/increase")
+    @PatchMapping("/name/{name}/silver/increase")
     public ResponseEntity<CountryDTO> increaseCountrySilverByName(@PathVariable String name) {
         return new ResponseEntity<>(countryService.increaseCountrySilverByName(name), HttpStatus.OK);
     }
 
-    @PutMapping("/{id}/silver/decrease")
+    @PatchMapping("/{id}/silver/decrease")
     public ResponseEntity<CountryDTO> decreaseCountrySilver(@PathVariable String id) {
         return new ResponseEntity<>(countryService.decreaseCountrySilver(id), HttpStatus.OK);
     }
 
-    @PutMapping("/name/{name}/silver/decrease")
+    @PatchMapping("/name/{name}/silver/decrease")
     public ResponseEntity<CountryDTO> decreaseCountrySilverByName(@PathVariable String name) {
         return new ResponseEntity<>(countryService.decreaseCountrySilverByName(name), HttpStatus.OK);
     }
 
-    @PutMapping("/{id}/bronze/increase")
+    @PatchMapping("/{id}/bronze/increase")
     public ResponseEntity<CountryDTO> increaseCountryBronze(@PathVariable String id) {
         return new ResponseEntity<>(countryService.increaseCountryBronze(id), HttpStatus.OK);
     }
 
-    @PutMapping("/name/{name}/bronze/increase")
+    @PatchMapping("/name/{name}/bronze/increase")
     public ResponseEntity<CountryDTO> increaseCountryBronzeByName(@PathVariable String name) {
         return new ResponseEntity<>(countryService.increaseCountryBronzeByName(name), HttpStatus.OK);
     }
 
-    @PutMapping("/{id}/bronze/decrease")
+    @PatchMapping("/{id}/bronze/decrease")
     public ResponseEntity<CountryDTO> decreaseCountryBronze(@PathVariable String id) {
         return new ResponseEntity<>(countryService.decreaseCountryBronze(id), HttpStatus.OK);
     }
 
-    @PutMapping("/name/{name}/bronze/decrease")
+    @PatchMapping("/name/{name}/bronze/decrease")
     public ResponseEntity<CountryDTO> decreaseCountryBronzeByName(@PathVariable String name) {
         return new ResponseEntity<>(countryService.decreaseCountryBronzeByName(name), HttpStatus.OK);
     }
 
-    @DeleteMapping("/{id}/delete")
-    public ResponseEntity<CountryDTO> deleteCountry(@PathVariable String id) {
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> deleteCountry(@PathVariable String id) {
         countryService.deleteCountry(id);
         return ResponseEntity.noContent().build();
     }
 
-    @DeleteMapping("/name/{name}/delete")
-    public ResponseEntity<CountryDTO> deleteCountryByName(@PathVariable String name) {
+    @DeleteMapping("/name/{name}")
+    public ResponseEntity<Void> deleteCountryByName(@PathVariable String name) {
         countryService.deleteCountryByName(name);
         return ResponseEntity.noContent().build();
     }

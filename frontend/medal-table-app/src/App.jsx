@@ -5,13 +5,14 @@ import processData from "./util/data.js";
 import "./App.css";
 
 export default function App() {
-    const [countries, setCountries] = useState([]);
-
     useEffect(() => {
-        loadData("/gold");
+        loadData(localStorage.getItem("currentParameter") ? localStorage.getItem("currentParameter") : "/gold");
     }, []);
 
+    const [countries, setCountries] = useState([]);
+
     const loadData = (parameter) => {
+        localStorage.setItem("currentParameter", parameter);
         processData(parameter).then((countriesData) => {
             setCountries(countriesData);
         });
@@ -52,7 +53,7 @@ export default function App() {
                     </div>
                 </div>
                 {countries.map((countryData, index) => (
-                    <Line key={countryData.id} number={index + 1} name={countryData.name} flagLink={countryData.photoPath} gold={countryData.goldMedals} silver={countryData.silverMedals} bronze={countryData.bronzeMedals} all={countryData.allMedals} id={countryData.id} />
+                    <Line key={countryData.id} number={index + 1} name={countryData.name} flagLink={countryData.photoPath} gold={countryData.goldMedals} silver={countryData.silverMedals} bronze={countryData.bronzeMedals} all={countryData.allMedals} id={countryData.id} loadData={loadData} />
                 ))}
             </div>
             <div className="side-bar side-bar-right"></div>

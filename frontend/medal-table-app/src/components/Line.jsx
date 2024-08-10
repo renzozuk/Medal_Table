@@ -2,16 +2,20 @@ import { useEffect, useRef, useState } from "react";
 import ChangeButton from "./ChangeButton.jsx";
 import "./Line.css";
 
+function change(keyValue, medal, operation) {
+    fetch(`http://localhost:8080/country/${keyValue}/${medal}/${operation}`, {
+        method: "PATCH"
+    })
+        .then((response) => console.log(response))
+        .catch((error) => console.error("There's an error:", error));
+}
+
 export default function Line(props) {
     let background = props.number % 2 == 0 ? "#eaeaea" : "#444444";
     let textColor = props.number % 2 == 0 ? "#444444" : "#eaeaea";
 
     const [keyValue, setKeyValue] = useState(props.id);
     const [showChangeButton, setChangeButton] = useState(false);
-
-    /* const test = () => {
-        console.log(keyValue);
-    }; */
 
     const outerDivRef = useRef(null);
 
@@ -39,7 +43,7 @@ export default function Line(props) {
                 </div>
                 <div className="div-content div-content-end">
                     <div className="outer-number">
-                        {showChangeButton && <ChangeButton type="increase" background={textColor} textColor={background} />}
+                        {showChangeButton && <ChangeButton type="increase" background={textColor} textColor={background} onClick={() => change(keyValue, "gold", "increase")} />}
                         <p className="number">{props.gold}</p>
                         {showChangeButton && <ChangeButton type="decrease" background={textColor} textColor={background} />}
                     </div>
