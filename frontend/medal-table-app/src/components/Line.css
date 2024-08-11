@@ -43,16 +43,18 @@ p {
     align-items: center;
 }
 
-/* .change-button {
-    display: none;
-} */
-
 .increase-button {
     border-radius: 1% 1% 0 0;
 }
 
 .decrease-button {
     border-radius: 0 0 1% 1%;
+}
+
+.outer-number {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .number {
