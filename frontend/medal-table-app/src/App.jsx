@@ -6,7 +6,7 @@ import "./App.css";
 
 export default function App() {
     useEffect(() => {
-        loadData(localStorage.getItem("currentParameter") ? localStorage.getItem("currentParameter") : "/gold");
+        loadData(localStorage.getItem("currentParameter") || "/gold");
     }, []);
 
     const [countries, setCountries] = useState([]);
@@ -35,15 +35,9 @@ export default function App() {
                 </div>
                 <div className="sub-header sub-header-labels">
                     <div className="sub-header sub-header-start">
-                        <p className="sub-header-label" id="hashtag-label">
-                            #
-                        </p>
-                        <p className="sub-header-label" id="flag-label">
-                            Flag
-                        </p>
-                        <p className="sub-header-label" id="name-label">
-                            Name
-                        </p>
+                        <p className="sub-header-label" id="hashtag-label">#</p>
+                        <p className="sub-header-label" id="flag-label">Flag</p>
+                        <p className="sub-header-label" id="name-label">Name</p>
                     </div>
                     <div className="sub-header sub-header-end">
                         <img className="single-medal" src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/Gold_medal.svg/1024px-Gold_medal.svg.png"></img>
