@@ -20,14 +20,19 @@ public class CountryController {
         this.countryService = countryService;
     }
 
-    @GetMapping
-    public ResponseEntity<List<CountryDTO>> getCountries() {
-        return new ResponseEntity<>(countryService.getAllCountries(), HttpStatus.OK);
+    @GetMapping({"", "/random"})
+    public ResponseEntity<List<CountryDTO>> getCountriesShuffled() {
+        return new ResponseEntity<>(countryService.getAllCountriesShuffled(), HttpStatus.OK);
     }
 
-    @GetMapping("/reverse")
+    @GetMapping("/alphabetic")
+    public ResponseEntity<List<CountryDTO>> getCountries() {
+        return new ResponseEntity<>(countryService.getAllCountriesAlphabetically(), HttpStatus.OK);
+    }
+
+    @GetMapping("/alphabetic/reverse")
     public ResponseEntity<List<CountryDTO>> getCountriesReversed() {
-        return new ResponseEntity<>(countryService.getAllCountriesReversed(), HttpStatus.OK);
+        return new ResponseEntity<>(countryService.getAllCountriesAlphabeticallyReversed(), HttpStatus.OK);
     }
 
     @GetMapping("/gold")

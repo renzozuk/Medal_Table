@@ -11,8 +11,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Service;
 
+import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import static com.renzozuk.medaltableapi.util.CountryConverter.mapToDTO;
 import static com.renzozuk.medaltableapi.util.CountryConverter.mapToEntity;
@@ -26,11 +28,18 @@ public class CountryService {
         this.countryRepository = countryRepository;
     }
 
-    public List<CountryDTO> getAllCountries() {
+    public List<CountryDTO> getAllCountriesShuffled() {
+        return countryRepository.findAll().stream().map(CountryConverter::mapToDTO).collect(Collectors.collectingAndThen(Collectors.toList(), collected -> {
+            Collections.shuffle(collected);
+            return collected;
+        }));
+    }
+
+    public List<CountryDTO> getAllCountriesAlphabetically() {
         return countryRepository.findAll().stream().map(CountryConverter::mapToDTO).sorted(Comparator.comparing(CountryDTO::getName)).toList();
     }
 
-    public List<CountryDTO> getAllCountriesReversed() {
+    public List<CountryDTO> getAllCountriesAlphabeticallyReversed() {
         return countryRepository.findAll().stream().map(CountryConverter::mapToDTO).sorted(Comparator.comparing(CountryDTO::getName)).toList().reversed();
     }
 
