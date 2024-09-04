@@ -26,12 +26,13 @@ export default function App() {
                     <p className="header-title">Olympic Medal Table</p>
                 </div>
                 <div className="sub-header sequence-buttons">
-                    <SequenceButton image={false} content={"A-Z"} arrow={true} onClick={() => loadData("/alphabetic")} />
-                    <SequenceButton image={false} content={"A-Z"} arrow={false} onClick={() => loadData("/alphabetic/reverse")} />
-                    <SequenceButton image={true} content={"https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/Gold_medal.svg/1024px-Gold_medal.svg.png"} arrow={true} onClick={() => loadData("/gold")} />
-                    <SequenceButton image={true} content={"https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/Gold_medal.svg/1024px-Gold_medal.svg.png"} arrow={false} onClick={() => loadData("/gold/reverse")} />
-                    <SequenceButton image={true} content={"https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/GoldSilverBronze_medals.svg/1920px-GoldSilverBronze_medals.svg.png"} arrow={true} onClick={() => loadData("/all-medals")} />
-                    <SequenceButton image={true} content={"https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/GoldSilverBronze_medals.svg/1920px-GoldSilverBronze_medals.svg.png"} arrow={false} onClick={() => loadData("/all-medals/reverse")} />
+                    <SequenceButton image={false} content={"A-Z"} arrow={true} reverse={false} onClick={() => loadData("/alphabetic")} />
+                    <SequenceButton image={false} content={"A-Z"} arrow={true} reverse={true} onClick={() => loadData("/alphabetic/reverse")} />
+                    <SequenceButton image={true} content={"https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/Gold_medal.svg/1024px-Gold_medal.svg.png"} arrow={true} reverse={false} onClick={() => loadData("/gold")} />
+                    <SequenceButton image={true} content={"https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/Gold_medal.svg/1024px-Gold_medal.svg.png"} arrow={true} reverse={true} onClick={() => loadData("/gold/reverse")} />
+                    <SequenceButton image={true} content={"https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/GoldSilverBronze_medals.svg/1920px-GoldSilverBronze_medals.svg.png"} arrow={true} reverse={false} onClick={() => loadData("/all-medals")} />
+                    <SequenceButton image={true} content={"https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/GoldSilverBronze_medals.svg/1920px-GoldSilverBronze_medals.svg.png"} arrow={true} reverse={true} onClick={() => loadData("/all-medals/reverse")} />
+                    <SequenceButton image={false} content={"Shuffle"}  arrow={false} onClick={() => loadData("/random")} />
                 </div>
                 <div className="sub-header sub-header-labels">
                     <div className="sub-header sub-header-start">
