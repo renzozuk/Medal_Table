@@ -11,7 +11,7 @@ import java.util.List;
 
 @CrossOrigin(origins = "http://localhost:5173")
 @RestController
-@RequestMapping("/country")
+@RequestMapping("/api/countries")
 public class CountryController {
     private final CountryService countryService;
 
@@ -20,39 +20,9 @@ public class CountryController {
         this.countryService = countryService;
     }
 
-    @GetMapping({"", "/random"})
-    public ResponseEntity<List<CountryDTO>> getCountriesShuffled() {
-        return new ResponseEntity<>(countryService.getAllCountriesShuffled(), HttpStatus.OK);
-    }
-
-    @GetMapping("/alphabetic")
-    public ResponseEntity<List<CountryDTO>> getCountries() {
-        return new ResponseEntity<>(countryService.getAllCountriesAlphabetically(), HttpStatus.OK);
-    }
-
-    @GetMapping("/alphabetic/reverse")
-    public ResponseEntity<List<CountryDTO>> getCountriesReversed() {
-        return new ResponseEntity<>(countryService.getAllCountriesAlphabeticallyReversed(), HttpStatus.OK);
-    }
-
-    @GetMapping("/gold")
-    public ResponseEntity<List<CountryDTO> >getCountriesByGoldMedals() {
-        return new ResponseEntity<>(countryService.getAllCountriesByGoldMedals(), HttpStatus.OK);
-    }
-
-    @GetMapping("/gold/reverse")
-    public ResponseEntity<List<CountryDTO> >getCountriesByGoldMedalsReversed() {
-        return new ResponseEntity<>(countryService.getAllCountriesByGoldMedalsReversed(), HttpStatus.OK);
-    }
-
-    @GetMapping("/all-medals")
-    public ResponseEntity<List<CountryDTO>> getCountriesByAllMedals() {
-        return new ResponseEntity<>(countryService.getAllCountriesByAllMedals(), HttpStatus.OK);
-    }
-
-    @GetMapping("/all-medals/reverse")
-    public ResponseEntity<List<CountryDTO>> getCountriesByAllMedalsReversed() {
-        return new ResponseEntity<>(countryService.getAllCountriesByAllMedalsReversed(), HttpStatus.OK);
+    @GetMapping
+    public ResponseEntity<List<CountryDTO>> getAllCountries(@RequestParam(required = false) boolean orderByName, @RequestParam(required = false) boolean orderByGoldMedals, @RequestParam(required = false) boolean orderByAllMedals, @RequestParam(required = false) boolean reversed) {
+        return new ResponseEntity<>(countryService.getAllCountries(orderByName, orderByGoldMedals, orderByAllMedals, reversed), HttpStatus.OK);
     }
 
     @GetMapping("/{id}")

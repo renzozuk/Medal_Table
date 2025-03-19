@@ -15,6 +15,7 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 import static com.renzozuk.medaltableapi.util.CountryConverter.mapToDTO;
 import static com.renzozuk.medaltableapi.util.CountryConverter.mapToEntity;
@@ -28,35 +29,30 @@ public class CountryService {
         this.countryRepository = countryRepository;
     }
 
-    public List<CountryDTO> getAllCountriesShuffled() {
-        return countryRepository.findAll().stream().map(CountryConverter::mapToDTO).collect(Collectors.collectingAndThen(Collectors.toList(), collected -> {
-            Collections.shuffle(collected);
-            return collected;
-        }));
-    }
+    // return shuffled if three first parameters are true
+    public List<CountryDTO> getAllCountries(boolean orderByName, boolean orderByGoldMedals, boolean orderByAllMedals, boolean reversed) {
+        Stream<Country> countryStream = countryRepository.findAll().stream();
 
-    public List<CountryDTO> getAllCountriesAlphabetically() {
-        return countryRepository.findAll().stream().map(CountryConverter::mapToDTO).sorted(Comparator.comparing(CountryDTO::getName)).toList();
-    }
+        if (orderByName || orderByGoldMedals || orderByAllMedals) {
+            if (orderByName) {
+                countryStream = countryStream.sorted(CountryComparator::compareByName);
+            }
 
-    public List<CountryDTO> getAllCountriesAlphabeticallyReversed() {
-        return countryRepository.findAll().stream().map(CountryConverter::mapToDTO).sorted(Comparator.comparing(CountryDTO::getName)).toList().reversed();
-    }
+            if (orderByGoldMedals) {
+                countryStream = countryStream.sorted(CountryComparator::compareByGoldMedals);
+            }
 
-    public List<CountryDTO> getAllCountriesByGoldMedals() {
-        return countryRepository.findAll().stream().sorted(CountryComparator::compareByGoldMedals).map(CountryConverter::mapToDTO).toList();
-    }
+            if (orderByAllMedals) {
+                countryStream = countryStream.sorted(CountryComparator::compareByAllMedals);
+            }
 
-    public List<CountryDTO> getAllCountriesByGoldMedalsReversed() {
-        return countryRepository.findAll().stream().sorted(CountryComparator::compareByGoldMedalsReversed).map(CountryConverter::mapToDTO).toList();
-    }
-
-    public List<CountryDTO> getAllCountriesByAllMedals() {
-        return countryRepository.findAll().stream().sorted(CountryComparator::compareByAllMedals).map(CountryConverter::mapToDTO).toList();
-    }
-
-    public List<CountryDTO> getAllCountriesByAllMedalsReversed() {
-        return countryRepository.findAll().stream().sorted(CountryComparator::compareByAllMedalsReversed).map(CountryConverter::mapToDTO).toList();
+            return reversed ? countryStream.map(CountryConverter::mapToDTO).toList().reversed() : countryStream.map(CountryConverter::mapToDTO).toList();
+        } else {
+            return countryStream.map(CountryConverter::mapToDTO).collect(Collectors.collectingAndThen(Collectors.toList(), collected -> {
+                Collections.shuffle(collected);
+                return collected;
+            }));
+        }
     }
 
     public CountryDTO getCountryById(String id) {

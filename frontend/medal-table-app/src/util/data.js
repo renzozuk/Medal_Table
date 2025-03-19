@@ -1,4 +1,4 @@
-const path = "http://localhost:8080/country";
+const path = "http://localhost:8080/api/countries";
 
 function processData(parameter) {
     return fetch(`${path}${parameter}`, {

@@ -95,16 +95,4 @@ public class Country {
     public int hashCode() {
         return Objects.hashCode(id);
     }
-
-    @Override
-    public String toString() {
-        return "Country{" +
-                "id='" + id + '\'' +
-                ", name='" + name + '\'' +
-                ", photoPath='" + photoPath + '\'' +
-                ", goldMedals=" + goldMedals +
-                ", silverMedals=" + silverMedals +
-                ", bronzeMedals=" + bronzeMedals +
-                '}';
-    }
 }

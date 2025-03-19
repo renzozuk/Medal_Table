@@ -24,7 +24,7 @@ export default function Line(props) {
     }, [outerDivRef]);
 
     const change = (keyValue, medal, operation) => {
-        fetch(`http://localhost:8080/country/${keyValue}/${medal}/${operation}`, {
+        fetch(`http://localhost:8080/api/countries/${keyValue}/${medal}/${operation}`, {
             method: "PATCH"
         })
             .then((response) => console.log(response))
