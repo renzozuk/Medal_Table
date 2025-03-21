@@ -29,7 +29,7 @@ public class CountryService {
         this.countryRepository = countryRepository;
     }
 
-    // return shuffled if three first parameters are true
+    // return shuffled if the three first parameters are false
     public List<CountryDTO> getAllCountries(boolean orderByName, boolean orderByGoldMedals, boolean orderByAllMedals, boolean reversed) {
         Stream<Country> countryStream = countryRepository.findAll().stream();
 
